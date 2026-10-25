@@ -1,0 +1,35 @@
+grafana:
+  enabled: true
+  service:
+    type: LoadBalancer
+  resources:
+    requests:
+      cpu: 50m
+      memory: 100Mi
+    limits:
+      cpu: 200m
+      memory: 500Mi
+
+prometheus:
+  enabled: true
+  prometheusSpec:
+    retention: 6h
+    resources:
+      requests:
+        cpu: 100m
+        memory: 500Mi
+      limits:
+        cpu: 300m
+        memory: 600Mi
+
+alertmanager:
+  enabled: false
+
+prometheusOperator:
+  enabled: true
+
+kube-state-metrics:
+  enabled: false
+
+prometheus-node-exporter:
+  enabled: true
